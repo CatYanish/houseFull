@@ -2,5 +2,18 @@
 <div class="container">
 
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+    <h3>{{uc.userObject.houseName}}</h3>
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+
+    <button type="button" name="button">Post a Completed House Task!</button>
+    <div>
+      <input type="text" placeholder="Room of the House" ng-model="uc.completedTask.room">
+      <input type="text" placeholder="Time Spent on Task" ng-model="uc.completedTask.time">
+      <input type="date" ng-model="uc.completedTask.date">
+      <input type="text" placeholder="Brief Task Description (140 Categories or less) " ng-model="uc.completedTask.description">
+      <button type="button" name="button" ng-click="uc.postTask(uc.userObject.userName, uc.userObject.houseName)">Submit!</button>
+    </div>
+
+
+
 </div>
