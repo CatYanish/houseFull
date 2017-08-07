@@ -3,10 +3,13 @@ myApp.controller('LoginController', function($http, $location, UserService) {
     var vm = this;
     vm.user = {
       username: '',
-      password: ''
+      password: '',
+      houseName: ''
     };
+
     vm.message = '';
 
+//The toggle functions allow user to either join or create a house, depending on what button they select.
     vm.createVisible = false;
 
     vm.createToggle = function () {
@@ -24,6 +27,10 @@ myApp.controller('LoginController', function($http, $location, UserService) {
       console.log(vm.joinVisible);
     }
 
+  ///end of toggle functions
+
+
+  ///allows existing users to login
     vm.login = function() {
       console.log('LoginController -- login');
       if(vm.user.username === '' || vm.user.password === '') {
@@ -46,10 +53,16 @@ myApp.controller('LoginController', function($http, $location, UserService) {
       }
     };
 
+
+
+    //allows user to register their account
+
     vm.registerUser = function() {
       console.log('LoginController -- registerUser');
       if(vm.user.username === '' || vm.user.password === '') {
         vm.message = "Choose a username and password!";
+      } else if (vm.user.houseName === '') {
+        vm.message = "Choose a house name!"
       } else {
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
@@ -61,4 +74,4 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         });
       }
     }
-});
+}); //end of controller
