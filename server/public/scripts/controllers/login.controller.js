@@ -7,6 +7,23 @@ myApp.controller('LoginController', function($http, $location, UserService) {
     };
     vm.message = '';
 
+    vm.createVisible = false;
+
+    vm.createToggle = function () {
+      console.log('create toggle function called');
+      vm.createVisible = !vm.createVisible;
+      console.log(vm.createVisible);
+    }
+
+
+    vm.joinVisible = false;
+
+    vm.joinToggle = function () {
+      console.log('join toggle function called');
+      vm.joinVisible = !vm.joinVisible;
+      console.log(vm.joinVisible);
+    }
+
     vm.login = function() {
       console.log('LoginController -- login');
       if(vm.user.username === '' || vm.user.password === '') {
