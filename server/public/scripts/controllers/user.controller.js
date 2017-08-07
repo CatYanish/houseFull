@@ -23,6 +23,7 @@ myApp.controller('UserController', function($http, UserService) {
       console.log('UserController -- task -- sending to server...', vm.completedTask);
       $http.post('/task', vm.completedTask).then(function(response) {
         console.log(response);
+        vm.getTasks();
       }).catch(function(response){
         console.log('UserController -- post task -- failure: ', response);
         vm.message = "Uh-oh, Post not updated!";
@@ -30,5 +31,14 @@ myApp.controller('UserController', function($http, UserService) {
     }
 
 
+    vm.getTasks = function() {
+      $http.get('/task').then(function(response) {
+      console.log(response.data);
+      vm.allTasks = response.data;
+      })
+
+    }
+
+    vm.getTasks();
 
   }); //end of user.controller
