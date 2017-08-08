@@ -1,10 +1,12 @@
 myApp.controller('LoginController', function($http, $location, UserService) {
     console.log('LoginController created');
     var vm = this;
+    vm.userService = UserService;
+    vm.userObject = UserService.userObject;
+
     vm.user = {
       username: '',
       password: '',
-      houseName: ''
     };
 
     vm.message = '';
@@ -61,17 +63,20 @@ myApp.controller('LoginController', function($http, $location, UserService) {
       console.log('LoginController -- registerUser');
       if(vm.user.username === '' || vm.user.password === '') {
         vm.message = "Choose a username and password!";
-      } else if (vm.user.houseName === '') {
-        vm.message = "Choose a house name!"
       } else {
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
           console.log('LoginController -- registerUser -- success');
-          $location.path('/home');
+          $location.path('/create');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
           vm.message = "Please try again."
         });
       }
     }
+
+
+
+
+
 }); //end of controller

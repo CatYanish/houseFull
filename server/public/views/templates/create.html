@@ -1,0 +1,34 @@
+<div ng-include="'views/partials/nav.html'"></div>
+<div class="container">
+
+  <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+  <h3>{{uc.userObject.houseName}}</h3>
+
+
+  <form ng-submit="lc.createHouse()">
+
+  <p>I want to:</p>
+  <div class="">
+    <button type="button" ng-click="lc.createToggle()" ng-hide="lc.joinVisible">Create a New House</button>
+      <p ng-show="lc.createVisible">Name Your House!</p>
+      <input ng-show="lc.createVisible" type="text" ng-model="lc.user.houseName">
+  </div>
+  <input class="btn btn-default" type="submit" name="submit" value="Register" />
+  <a href="#home">Cancel</a>
+<!-- this may need to call a separate function -->
+
+    <button ng-hide="lc.createVisible" type="button" name="button" ng-click="lc.joinToggle()">Join an Existing House</button>
+    <div ng-show="lc.joinVisible">
+      <p ng-show="lc.joinVisible">Enter your House Name</p>
+      <input ng-show="lc.joinVisible" type="text" ng-model="lc.user.houseName">
+    </div>
+
+<!-- the join is probably a separate function from create. -->
+
+
+<!--
+  <input class="btn btn-default" type="submit" name="submit" value="Register" />
+  <a href="#home">Cancel</a> -->
+
+
+</div>
