@@ -12,7 +12,12 @@ var TaskSchema = new Schema({
     description: {type: String}
 });
 
-
+var HouseScheme = new Schema ({
+  houseName: {type: String},
+  members: [{type: Number}],
+  tasks: [TaskSchema],
+  code: {type: String}
+});
 
 
 

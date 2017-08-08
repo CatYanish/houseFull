@@ -9,6 +9,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
       password: '',
     };
 
+
     vm.message = '';
 
 //The toggle functions allow user to either join or create a house, depending on what button they select.
@@ -43,7 +44,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
           if(response.data.username) {
             console.log('LoginController -- login -- success: ', response.data);
             // location works with SPA (ng-route)
-            $location.path('/user'); // http://localhost:5000/#/user
+            $location.path('/create'); // http://localhost:5000/#/user
           } else {
             console.log('LoginController -- login -- failure: ', response);
             vm.message = "Wrong!!";
@@ -67,14 +68,13 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
           console.log('LoginController -- registerUser -- success');
-          $location.path('/create');
+          $location.path('/');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
           vm.message = "Please try again."
         });
       }
     }
-
 
 
 
