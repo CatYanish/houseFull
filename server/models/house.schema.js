@@ -4,21 +4,21 @@ var Schema = mongoose.Schema;
 
 // Mongoose Schema
 var TaskSchema = new Schema({
-    username: {type: String, required: true},
-    houseName: {type: String, required: true},
+    username: {type: String},
+    userId: {type: Number},
     room: {type: String},
     time: {type: Number},
     date: {type: Date},
     description: {type: String}
 });
 
-var HouseScheme = new Schema ({
+var HouseSchema = new Schema ({
   houseName: {type: String},
-  members: [{type: Number}],
-  tasks: [TaskSchema],
-  code: {type: String}
+  code: {type: String},
+  members: [{type: mongoose.Schema.Types.ObjectId}],
+  tasks: [TaskSchema]
 });
 
 
 
-module.exports = mongoose.model('Task', TaskSchema);
+module.exports = mongoose.model('House', HouseSchema);

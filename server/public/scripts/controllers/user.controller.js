@@ -1,4 +1,4 @@
-myApp.controller('UserController', function($http, UserService) {
+myApp.controller('UserController', function($http, $location, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -15,6 +15,7 @@ myApp.controller('UserController', function($http, UserService) {
 
   vm.house = {
     houseName: '',
+    code: '',
     members: [],
     tasks: []
   }
@@ -70,17 +71,14 @@ myApp.controller('UserController', function($http, UserService) {
     //create a house name.
     vm.createHouse = function() {
       console.log('LoginController -- createHouse');
-      if(vm.house.house === '') {
-        vm.message = "Choose a house name!";
+      if(vm.house.houseName === ''|| vm.house.code === '') {
+        vm.message = "Choose a house name and a secret house code!";
       } else {
-        console.log('LoginController -- createHouse -- sending to server...', vm.house);
+        console.log('UserController -- createHouse -- sending to server...', vm.house);
         $http.post('/register/house', vm.house).then(function(response) {
-          console.log('LoginController -- createHouse -- success');
-          $location.path('/home');
-        }).catch(function(response) {
-          console.log('LoginController -- createHouse -- error');
-          vm.message = "Please try again."
-        });
+          console.log('UserController -- createHouse -- success');
+          $location.path('/user');
+        })
       }
     }
 

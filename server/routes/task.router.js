@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Task = require('../models/task.schema.js');
+var Task = require('../models/house.schema.js');
 var path = require('path');
 
 //WORKING HERE, need to make a post route with authentication. Both examples below are
