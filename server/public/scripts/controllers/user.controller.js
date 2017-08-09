@@ -20,6 +20,12 @@ myApp.controller('UserController', function($http, $location, UserService) {
     tasks: []
   }
 
+  vm.join = {
+    houseName: '',
+    code: '',
+
+  }
+
 //modify this to post a completed chore
   vm.postTask = function(user, houseName) {
     console.log(user);
@@ -80,6 +86,23 @@ myApp.controller('UserController', function($http, $location, UserService) {
           $location.path('/user');
         })
       }
-    }
+    } //end of create house post function
+
+
+
+    vm.joinHouse = function() {
+      console.log('LoginController -- createHouse');
+      // if(vm.house.code === '') {
+      //   vm.message = "Uh-oh, try your house code again!";
+      // } else if (vm.house.houseName === '') {
+      //   vm.message = "Check your house name and try again!"
+      // } else {
+        console.log('UserController -- joinHouse -- sending to server...', vm.join);
+        $http.put('/register/join', vm.join).then(function(response) {
+          console.log('UserController -- createHouse -- success');
+          $location.path('/user');
+        })
+      }
+    //end of create house post function
 
   }); //end of user.controller

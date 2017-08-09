@@ -4,23 +4,27 @@
   <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
 
 
-  <form ng-submit="uc.createHouse()">
 
+<!-- Create a house form  -->
   <p>I want to:</p>
-  <div class="">
+  <div>
     <button type="button" ng-click="uc.createToggle()" ng-hide="uc.joinVisible">Create a New House</button>
       <p ng-show="uc.createVisible">Name Your House!</p>
       <input ng-show="uc.createVisible" type="text" ng-model="uc.house.houseName" placeholder="House Name">
       <input ng-show="uc.createVisible" type="text" ng-model="uc.house.code" placeholder="Create a house pin">
+      <button ng-show="uc.createVisible" ng-click="uc.createHouse()">Create!</button>
+      <a href="#home">Cancel</a>
   </div>
-  <input class="btn btn-default" type="submit" name="submit" value="Register" />
-  <a href="#home">Cancel</a>
-<!-- this may need to call a separate function -->
+
+<!-- join input submission will call a separate put req function -->
 
     <button ng-hide="uc.createVisible" type="button" name="button" ng-click="uc.joinToggle()">Join an Existing House</button>
     <div ng-show="uc.joinVisible">
       <p ng-show="uc.joinVisible">Enter your House Name</p>
-      <input ng-show="uc.joinVisible" type="text" ng-model="uc.user.houseName">
+      <input ng-show="uc.joinVisible" type="text" ng-model="uc.join.houseName" placeholder="House Name">
+      <input ng-show="uc.joinVisible" type="text" ng-model="uc.join.code" placeholder="House Code">
+      <button ng-show="uc.joinVisible" ng-click="uc.joinHouse()">Join!</button>
+      <a href="#home">Cancel</a>
     </div>
 
 <!-- the join is probably a separate function from create. -->
