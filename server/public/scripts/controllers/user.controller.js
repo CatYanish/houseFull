@@ -1,4 +1,4 @@
-myApp.controller('UserController', function($http, UserService) {
+myApp.controller('UserController', function($http, $location, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -13,7 +13,12 @@ myApp.controller('UserController', function($http, UserService) {
     description: ''
   };
 
-
+  vm.house = {
+    houseName: '',
+    code: '',
+    members: [],
+    tasks: []
+  }
 
 //modify this to post a completed chore
   vm.postTask = function(user, houseName) {
@@ -40,5 +45,41 @@ myApp.controller('UserController', function($http, UserService) {
     }
 
     vm.getTasks();
+
+
+    //The toggle functions allow user to either join or create a house, depending on what button they select.
+        vm.createVisible = false;
+
+        vm.createToggle = function () {
+          console.log('create toggle function called');
+          vm.createVisible = !vm.createVisible;
+          console.log(vm.createVisible);
+        }
+
+
+        vm.joinVisible = false;
+
+        vm.joinToggle = function () {
+          console.log('join toggle function called');
+          vm.joinVisible = !vm.joinVisible;
+          console.log(vm.joinVisible);
+        }
+
+      ///end of toggle functions
+
+
+    //create a house name.
+    vm.createHouse = function() {
+      console.log('LoginController -- createHouse');
+      if(vm.house.houseName === ''|| vm.house.code === '') {
+        vm.message = "Choose a house name and a secret house code!";
+      } else {
+        console.log('UserController -- createHouse -- sending to server...', vm.house);
+        $http.post('/register/house', vm.house).then(function(response) {
+          console.log('UserController -- createHouse -- success');
+          $location.path('/user');
+        })
+      }
+    }
 
   }); //end of user.controller
