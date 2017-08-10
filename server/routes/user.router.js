@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var House = require('../models/house.schema.js');
+var mongoose = require('mongoose');
+
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
@@ -9,10 +12,31 @@ router.get('/', function(req, res) {
     // send back user object from database
     console.log('logged in', req.user);
     var userInfo = {
-      username : req.user.username,
-      houseName: req.user.houseName
+      username : req.user.username
     };
-    res.send(userInfo);
+    //TRYING TO SEARCH ALL HOUSES to See IF USER IS PRESENT IN THE MEMBER ARRAY
+    //House.find({}).then(function(response) {
+    var userId = mongoose.Types.ObjectId(req.user._id);
+    console.log(userId);
+    House.find({ members: userId}).then(function(response) {
+      console.log('Looking for a house.');
+      console.log('doc',response);
+      if(response[0] !== undefined ) {
+        console.log('they have a house');
+        userInfo.houseName = response[0].houseName;
+        console.log(userInfo);
+        res.send(userInfo);
+      } else {
+        console.log('They have no house');
+        console.log('user without house', userInfo);
+        res.send(userInfo);
+     }
+   }).catch(function(err){
+     console.log('error',err);
+   });
+    //TRYING TO SEARCH HOUSES, and IF THE USER IS IN A HOUSE, ADD HOUSE INFO TO userInfo
+    //IF USER IS NOT IN A HOUSE, SEND USER OBJECT AND
+
   } else {
     // failure best handled on the server. do redirect here.
     console.log('not logged in');
