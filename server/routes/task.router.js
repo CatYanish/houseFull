@@ -57,7 +57,8 @@ router.get('/', function(req, res) {
     House.find({ members: userId}).then(function(response) {
       console.log('all of everything in the house', response[0]);
       console.log('the tasks in the house', response[0].tasks);
-      res.send(response);
+      var taskList = response[0].tasks;
+      res.send(taskList);
 
    })
  }  else {
