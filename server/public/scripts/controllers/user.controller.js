@@ -47,7 +47,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
 
     vm.getTasks = function() {
       $http.get('/task').then(function(response) {
-      console.log(response.data);
+      console.log('this is the task response from the server', response.data);
       vm.allTasks = response.data;
       })
 
