@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 // Mongoose Schema
 var TaskSchema = new Schema({
     username: {type: String},
-    userId: {type: Number},
+    userId: {type: mongoose.Schema.Types.ObjectId},
     room: {type: String},
     time: {type: Number},
     date: {type: Date},

@@ -6,12 +6,14 @@ myApp.controller('UserController', function($http, $location, UserService) {
 
   vm.completedTask = {
     username: '',
+    code: '',
     houseName: '',
     room: '',
     time: '',
     date:'',
     description: ''
   };
+
 
   vm.house = {
     houseName: '',
@@ -27,12 +29,13 @@ myApp.controller('UserController', function($http, $location, UserService) {
   }
 
 //modify this to post a completed chore
-  vm.postTask = function(user, houseName) {
+  vm.postTask = function(user, houseName, code) {
     console.log(user);
       vm.completedTask.username = user;
       vm.completedTask.houseName = houseName;
+      vm.completedTask.code = code;
       console.log('UserController -- task -- sending to server...', vm.completedTask);
-      $http.post('/task', vm.completedTask).then(function(response) {
+      $http.put('/task', vm.completedTask).then(function(response) {
         console.log(response);
         vm.getTasks();
       }).catch(function(response){
