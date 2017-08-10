@@ -15,7 +15,7 @@ var TaskSchema = new Schema({
 var HouseSchema = new Schema ({
   houseName: {type: String},
   code: {type: String},
-  members: [{type: mongoose.Schema.Types.ObjectId}],
+  members: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
   tasks: [TaskSchema]
 });
 
