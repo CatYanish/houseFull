@@ -24,6 +24,7 @@ router.get('/', function(req, res) {
       if(response[0] !== undefined ) {
         console.log('they have a house');
         userInfo.houseName = response[0].houseName;
+        userInfo.code = response[0].code;
         console.log(userInfo);
         res.send(userInfo);
       } else {
