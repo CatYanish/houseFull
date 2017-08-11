@@ -1,18 +1,29 @@
-<div class="container">
-  <h1 class="lead">Login</h1>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
+<div class="container login">
+  <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
+    <div class="reg-form">
+
+
     <form ng-submit="lc.login()">
-      <div>
-          <label for="username">Username:</label>
-          <input type="text" ng-model="lc.user.username" />
+      <div class="form-group row">
+          <label class="col-xs-2 col-form-label" for="username">Username</label>
+          <div class="col-xs-12">
+            <input class="form-control" type="text" ng-model="lc.user.username" placeholder="Username"/>
+          </div>
+      </div>
+      <div class="form-group row">
+          <label class="col-xs-2 col-form-label" for="password">Password</label>
+          <div class="col-xs-12">
+            <input class="form-control" type="password" ng-model="lc.user.password" placeholder="Password"/>
+          </div>
       </div>
       <div>
-          <label for="password">Password:</label>
-          <input type="password" ng-model="lc.user.password" />
+      <div class="form-group row">
+          <div class="col-xs-12">
+          <input class="btn btn-login col-xs-12" type="submit" name="submit" value="Log In" />
+        </div>
       </div>
-      <div>
-          <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-          <a href="#register">Register</a>
+      <div align="center"><a href="#register">Register</a></div>
       </div>
     </form>
+  </div>
 </div>

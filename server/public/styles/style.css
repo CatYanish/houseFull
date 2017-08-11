@@ -1,17 +1,19 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  font-size: 14px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
 }
 
+/*Main Banner HouseFull H1*/
 .instructions .container h1 {
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 600;
 }
 
+/*Main Banner*/
 .instructions {
-  background-color: #333333;
+  background-color: #FF6633;
   color: #DDDDDD;
   padding: 15px;
 }
@@ -49,10 +51,50 @@ body, html {
 }
 
 .navbar {
-  background-color: #333333;
+  background-color: #FF9966;
   width: 100%;
   border-radius: 0px;
 }
+
+
+/*Register Form Specific*/
+.btn-reg {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #66CC99;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.reg-form {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+}
+
+.register {
+  height: 1000px;
+  width: 100%;
+  background-color: #99CCCC;
+}
+
+/*End of Register Form Specific*/
+
+/*Start login page styling*/
+
+.btn-login {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #66CC99;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
 
 ul {
   list-style-type: none;
@@ -61,20 +103,34 @@ ul {
   overflow: hidden;
 }
 
-li {
-  float: left;
+li a {
+  color: white;
+  text-decoration: none;
+
 }
 
-li a {
+li {
+  float: left;
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
+
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
   text-decoration: underline;
   color: #eee;
+}
+
+
+
+.taskCards {
+  background-color: #FFCC66;
+
+}
+
+.postTask {
+  background-color: #FFCC99;
 }
