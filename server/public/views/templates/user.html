@@ -1,12 +1,12 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+<div class="user-page">
 
     <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
     <h3>{{uc.userObject.houseName}}</h3>
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+
 
     <button type="button" name="button">Post a Completed House Task!</button>
-    <div>
+    <div class="postTask">
       <input type="text" placeholder="Room of the House" ng-model="uc.completedTask.room">
       <input type="text" placeholder="Time Spent on Task" ng-model="uc.completedTask.time">
       <input type="date" ng-model="uc.completedTask.date">
@@ -21,5 +21,4 @@
       <p>{{task.room}}</p>
       <p>{{task.description}}</p>
     </div>
-
 </div>

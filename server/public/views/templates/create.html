@@ -13,9 +13,9 @@
       <input ng-show="uc.createVisible" type="text" ng-model="uc.house.houseName" placeholder="House Name">
       <input ng-show="uc.createVisible" type="text" ng-model="uc.house.code" placeholder="Create a house pin">
       <button ng-show="uc.createVisible" ng-click="uc.createHouse()">Create!</button>
-      <a href="#home">Cancel</a>
-  </div>
 
+  </div>
+    <a ng-show="uc.createVisible" href="#home">Cancel</a>
 <!-- join input submission will call a separate put req function -->
 
     <button ng-hide="uc.createVisible" type="button" name="button" ng-click="uc.joinToggle()">Join an Existing House</button>
