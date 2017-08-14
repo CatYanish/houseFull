@@ -16,7 +16,7 @@ vm.person = {};
       console.log('index of response.data', response.data[i]);
 
     }
-// 
+//
 //     for (var key in languageObj) {
 //             if (languages.hasOwnProperty(key)) {
 //               languages[key] += languageObj[key];
