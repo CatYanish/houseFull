@@ -60,18 +60,14 @@ myApp.controller('UserController', function($http, $location, UserService) {
         vm.createVisible = false;
 
         vm.createToggle = function () {
-          console.log('create toggle function called');
           vm.createVisible = !vm.createVisible;
-          console.log(vm.createVisible);
         }
 
 
         vm.joinVisible = false;
 
         vm.joinToggle = function () {
-          console.log('join toggle function called');
           vm.joinVisible = !vm.joinVisible;
-          console.log(vm.joinVisible);
         }
 
       ///end of toggle functions
