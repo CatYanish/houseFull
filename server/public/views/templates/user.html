@@ -1,24 +1,63 @@
+<div ng-include="'views/partials/banner.html'"></div>
 <div ng-include="'views/partials/nav.html'"></div>
+
 <div class="user-page">
 
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <h3>{{uc.userObject.houseName}}</h3>
 
 
-    <button type="button" name="button">Post a Completed House Task!</button>
-    <div class="postTask">
-      <input type="text" placeholder="Room of the House" ng-model="uc.completedTask.room">
-      <input type="text" placeholder="Time Spent on Task" ng-model="uc.completedTask.time">
-      <input type="date" ng-model="uc.completedTask.date">
-      <input type="text" placeholder="Brief Task Description (140 Categories or less) " ng-model="uc.completedTask.description">
-      <button type="button" name="button" ng-click="uc.postTask(uc.userObject.userName, uc.userObject.houseName, uc.userObject.code)">Submit!</button>
+
+    <h3 type="button" name="button">Post a Completed House Task!</h3>
+
+<form>
+
+
+    <div class="form-group">
+      <select class="form-control" type="text" ng-model="uc.completedTask.room">
+        <option>Living Room</option>
+        <option>Kitchen</option>
+        <option>Bathroom</option>
+        <option>Bedroom</option>
+        <option>Hallway</option>
+        <option>Stairs</option>
+        <option>Yard/Garden/Outside</option>
+        <option>Common Space</option>
+      </select>
     </div>
+    <div class="form-group">
+      <select class="form-control" ng-model="uc.completedTask.time">
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+        <option>50</option>
+        <option>60</option>
+        <option>70</option>
+        <option>80</option>
+        <option>90</option>
+        <option>100</option>
+        <option>110</option>
+        <option>120</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="date" ng-model="uc.completedTask.date">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="uc.completedTask.description">
+    </div>
+
+    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="uc.postTask(uc.userObject.userName, uc.userObject.houseName, uc.userObject.code)">Submit!</button>
+</form>
+
+
 
     <div ng-repeat="task in uc.allTasks">
-      <p>{{task.username}}</p>
-      <p>{{task.time}}</p>
-      <p>{{task.date | date:'medium' }}</p>
-      <p>{{task.room}}</p>
-      <p>{{task.description}}</p>
+      <div class="taskCard col-xs-10">
+        <p>{{task.username}}</p>
+        <p>{{task.date | date:'medium' }}</p>
+        <p>{{task.room}}</p>
+        <p>{{task.description}}</p>
+      </div>
     </div>
+
 </div>

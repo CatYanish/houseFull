@@ -4,7 +4,16 @@ One Paragraph of project description goes here. Link to the live version of the 
 
 ## Built With
 
-List technologies and frameworks here
+MEAN Stack
+--Mongo
+--Angular
+--Express.js
+--Node.js
+
+Styled with Bootstrap
+
+
+
 
 ## Getting Started
 
@@ -15,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- Heroku
 
 
 ### Installing

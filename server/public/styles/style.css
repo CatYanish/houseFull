@@ -18,6 +18,18 @@ body, html {
   padding: 15px;
 }
 
+
+.banner {
+  background-color: #FF6633;
+  color: #DDDDDD;
+  padding: 5px;
+}
+
+.banner .container h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
 #entryForm {
   margin-top: 14px;
 }
@@ -93,7 +105,32 @@ body, html {
   margin-bottom: 10px;
 }
 
+/**/
 
+.btn-create {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #666699;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.btn-join {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #66CCCC;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-task {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: ##9999CC;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 
 ul {
@@ -125,12 +162,11 @@ li a:hover {
 }
 
 
-
-.taskCards {
-  background-color: #FFCC66;
-
-}
-
-.postTask {
-  background-color: #FFCC99;
+.taskCard {
+  background-color: #66CC99;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
 }

@@ -1,38 +1,45 @@
+<header ng-include="'/views/partials/header.html'"></header>
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-
-  <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-
-
-
-<!-- Create a house form  -->
-  <p>I want to:</p>
-  <div>
-    <button type="button" ng-click="uc.createToggle()" ng-hide="uc.joinVisible">Create a New House</button>
-      <p ng-show="uc.createVisible">Name Your House!</p>
-      <input ng-show="uc.createVisible" type="text" ng-model="uc.house.houseName" placeholder="House Name">
-      <input ng-show="uc.createVisible" type="text" ng-model="uc.house.code" placeholder="Create a house pin">
-      <button ng-show="uc.createVisible" ng-click="uc.createHouse()">Create!</button>
-
+    <!-- Create a house form  -->
+  <div ng-hide="uc.joinVisible">
+    <p ng-hide="uc.createVisible">I want to:</p>
+    <div>
+      <button type="button" ng-click="uc.createToggle()" ng-hide="uc.createVisible">Create a New House</button>
+    </div>
+    <div class="form-group row">
+      <label class="col-xs-12 col-form-label" ng-show="uc.createVisible">House Name</label>
+      <div class="col-xs-12">
+        <input class="form-control" ng-show="uc.createVisible" type="text" ng-model="uc.house.houseName" placeholder="House Name">
+      </div>
+      <label class="col-xs-12 col-form-label" ng-show="uc.createVisible">Secret Code</label>
+      <div class="col-xs-12">
+        <input class="form-control" ng-show="uc.createVisible" type="text" ng-model="uc.house.code" placeholder="Create a house pin">
+      </div>
+    </div>
+    <button class="btn btn-create col-xs-12" ng-show="uc.createVisible" ng-click="uc.createHouse()">Create!</button>
   </div>
-    <a ng-show="uc.createVisible" href="#home">Cancel</a>
-<!-- join input submission will call a separate put req function -->
-
+  <div align="center">
+    <div ng-show="uc.createVisible" ng-click="uc.createToggle()">Cancel</div>
+  </div>
+  <!-- join input submission will call a separate put req function -->
+  <div ng-hide="uc.joinVisible">
     <button ng-hide="uc.createVisible" type="button" name="button" ng-click="uc.joinToggle()">Join an Existing House</button>
-    <div ng-show="uc.joinVisible">
-      <p ng-show="uc.joinVisible">Enter your House Name</p>
-      <input ng-show="uc.joinVisible" type="text" ng-model="uc.join.houseName" placeholder="House Name">
-      <input ng-show="uc.joinVisible" type="text" ng-model="uc.join.code" placeholder="House Code">
-      <button ng-show="uc.joinVisible" ng-click="uc.joinHouse()">Join!</button>
-      <a href="#home">Cancel</a>
+  </div>
+  <div class="form-group row" ng-show="uc.joinVisible" >
+    <label class="col-xs-12 col-form-label" ng-show="uc.joinVisible">House Name</label>
+    <div class="col-xs-12">
+      <input class="form-control" ng-show="uc.joinVisible" type="text" ng-model="uc.join.houseName" placeholder="House Name">
     </div>
 
-<!-- the join is probably a separate function from create. -->
+    <label class="col-xs-12 col-form-label" ng-show="uc.joinVisible">Secret Code</label>
+    <div class="col-xs-12">
+      <input class="form-control" ng-show="uc.joinVisible" type="text" ng-model="uc.join.code" placeholder="House Code">
+    </div>
 
-
-<!--
-  <input class="btn btn-default" type="submit" name="submit" value="Register" />
-  <a href="#home">Cancel</a> -->
-
-
+  </div>
+  <button class="btn btn-join col-xs-12" ng-show="uc.joinVisible" ng-click="uc.joinHouse()">Join!</button>
+  <div align="center">
+    <div ng-show="uc.joinVisible" ng-click="uc.joinToggle()">Cancel</div>
+  </div>
 </div>
