@@ -3,4 +3,22 @@
   <p>
     In Info
   </p>
+
+
+    <canvas id="doughnut" class="chart chart-doughnut"
+      chart-data="ic.data" chart-labels="ic.labels">
+    </canvas>
+
+
+    <div ng-repeat="task in ic.allTasks">
+      <div class="taskCard col-xs-10">
+        <p>{{task.username}}</p>
+        <p>{{task.date | date:'medium' }}</p>
+        <p>{{task.room}}</p>
+        <p>{{task.description}}</p>
+      </div>
+    </div>
+
+
+
 </div>
