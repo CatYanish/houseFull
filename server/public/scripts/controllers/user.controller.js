@@ -4,6 +4,18 @@ myApp.controller('UserController', function($http, $location, UserService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
+
+  vm.getTasks = function() {
+    $http.get('/task').then(function(response) {
+    console.log('this is the task response from the server', response.data);
+    vm.allTasks = response.data;
+    })
+
+  }
+
+  vm.getTasks();
+
+
   vm.completedTask = {
     username: '',
     code: '',
@@ -38,6 +50,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
       $http.put('/task', vm.completedTask).then(function(response) {
         console.log(response);
         vm.getTasks();
+        vm.reset();
       }).catch(function(response){
         console.log('UserController -- post task -- failure: ', response);
         vm.message = "Uh-oh, Post not updated!";
@@ -45,15 +58,21 @@ myApp.controller('UserController', function($http, $location, UserService) {
     }
 
 
-    vm.getTasks = function() {
-      $http.get('/task').then(function(response) {
-      console.log('this is the task response from the server', response.data);
-      vm.allTasks = response.data;
-      })
 
-    }
+    vm.reset = function() {
+    vm.completedTask = {
+      username: '',
+      code: '',
+      houseName: '',
+      room: '',
+      time: '',
+      date:'',
+      description: ''
+    };
+    vm.form.$setPristine();
+  }
 
-    vm.getTasks();
+
 
 
     //The toggle functions allow user to either join or create a house, depending on what button they select.

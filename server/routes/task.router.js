@@ -48,16 +48,16 @@ router.put('/', function(req, res) {
 
 
 
-
+//this route is intermittently super super slow//
 router.get('/', function(req, res) {
-
+console.log('in the get all tasks route, checking authentication');
   if(req.isAuthenticated()) {
+    console.log('in the get all tasks route, checking what is slow');
     var userId = mongoose.Types.ObjectId(req.user._id);
-    console.log(userId);
-    House.find({ members: userId}).then(function(response) {
-      console.log('all of everything in the house', response[0]);
-      console.log('the tasks in the house', response[0].tasks);
-      var taskList = response[0].tasks;
+    House.findOne({ members: userId}).then(function(foundHouse) {
+      //console.log('all of everything in the house', foundHouse);
+      console.log('number of tasks in the house', foundHouse.tasks.length);
+      var taskList = foundHouse.tasks;
       res.send(taskList);
 
    })

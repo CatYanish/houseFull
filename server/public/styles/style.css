@@ -170,3 +170,14 @@ li a:hover {
   margin-bottom: 10px;
   margin-left: 30px;
 }
+
+.taskForm {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.chart {
+  font-size: 18px;
+  max-width: 350px;
+  max-height: 350px;
+}
