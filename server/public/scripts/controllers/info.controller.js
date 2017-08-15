@@ -5,40 +5,31 @@ myApp.controller('InfoController', function($http, $location, UserService) {
   vm.userObject = UserService.userObject;
 
 
-  vm.people;
 
   vm.getTasks = function() {
     $http.get('/chart').then(function(response) {
-    console.log('this is the task response from the server', response);
+    console.log('this is the task response from the server', response.data);
+
+
+    vm.labels = [];
+    vm.data = [];
+
+    for (var i = 0; i < response.data.length; i++) {
+      vm.username = response.data[i]._id;
+      vm.total = response.data[i].total;
+      console.log(vm.total);
+      vm.labels.push(vm.username);
+      vm.data.push(vm.total);
+
+    }
 
 
 
-
-
-    // var chart = new Chart(document.getElementById("myDoughnutGraph"), {
-    //     type: 'doughnut',
-    //     data: {
-    //       labels: ["Africa", "Asia", "Europe",],
-    //       datasets: [
-    //         {
-    //           label: "House Task Contributions (minutes)",
     //           backgroundColor: ["#9999CC", "#FF9966","#CC9999","#FF9999","#99CCCC"],
-    //           data: [30, 40, 50]
-    //         }
-    //       ]
-    //     },
-    //     options: {
-    //       title: {
-    //         display: true,
-    //         text: 'House Task Contributions (minutes)'
-    //       }
-    //     }
-    // }); //end of chart.js
 
 
 
-      vm.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-      vm.data = [300, 500, 100];
+
 
 
 
