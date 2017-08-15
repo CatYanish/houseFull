@@ -10,7 +10,7 @@ myApp.controller('InfoController', function($http, $location, UserService) {
     $http.get('/chart').then(function(response) {
     console.log('this is the task response from the server', response.data);
 
-
+    vm.colors = ["#9999CC", "#FF9966","#CC9999","#FF9999","#99CCCC"];
     vm.labels = [];
     vm.data = [];
 
