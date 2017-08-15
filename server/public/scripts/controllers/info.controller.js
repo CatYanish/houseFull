@@ -5,27 +5,14 @@ myApp.controller('InfoController', function($http, $location, UserService) {
   vm.userObject = UserService.userObject;
 
 
+  vm.people;
 
   vm.getTasks = function() {
-    $http.get('/task').then(function(response) {
-    console.log('this is the task response from the server', response.data);
+    $http.get('/chart').then(function(response) {
+    console.log('this is the task response from the server', response);
 
-vm.person = {};
 
-    for (var i = 0; i < response.data.length; i++) {
-      console.log('index of response.data', response.data[i]);
 
-    }
-//
-//     for (var key in languageObj) {
-//             if (languages.hasOwnProperty(key)) {
-//               languages[key] += languageObj[key];
-//             } else {
-//               languages[key] = languageObj[key];
-//               colors[key] = gitColors[key].color;
-//               // colors.push( gitColors[key].color );
-//             }
-// }
 
 
     // var chart = new Chart(document.getElementById("myDoughnutGraph"), {

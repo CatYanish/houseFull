@@ -14,8 +14,7 @@ router.get('/', function(req, res) {
     var userInfo = {
       username : req.user.username
     };
-    //TRYING TO SEARCH ALL HOUSES to See IF USER IS PRESENT IN THE MEMBER ARRAY
-    //House.find({}).then(function(response) {
+    //Search all houses to see if user is present in member array
     var userId = mongoose.Types.ObjectId(req.user._id);
     console.log(userId);
     House.find({ members: userId}).then(function(response) {
@@ -34,14 +33,9 @@ router.get('/', function(req, res) {
      }
    }).catch(function(err){
      console.log('error',err);
-   });
-    //TRYING TO SEARCH HOUSES, and IF THE USER IS IN A HOUSE, ADD HOUSE INFO TO userInfo
-    //IF USER IS NOT IN A HOUSE, SEND USER OBJECT AND
-
-  } else {
-    // failure best handled on the server. do redirect here.
+   }); //end of login and check if user has house function
+} else {
     console.log('not logged in');
-    // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
     res.send(false);
   }
 });
