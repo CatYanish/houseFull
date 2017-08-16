@@ -117,7 +117,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
 
 
     //info to email with nodemailer
-    vm.example = "this is some text";
+    vm.example = [];
 
     vm.emailUser = function() {
       $http.post('/mailer', vm.example).then(function(response) {

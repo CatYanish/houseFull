@@ -184,5 +184,6 @@ li a:hover {
 
 .edit-btn {
   position: relative;
-  left: 200px;
+  left: 230px;
+  margin-bottom: 10px;
 }

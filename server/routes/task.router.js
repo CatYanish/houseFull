@@ -40,24 +40,39 @@ router.put('/', function(req, res) {
 }); //end put function
 
 
+  var taskList = [];
 
 
-
-//this route is intermittently super super slow//
+//this route sends a list of all the tasks completed in the house//
 router.get('/', function(req, res) {
-console.log('in the get all tasks route, checking authentication');
   if(req.isAuthenticated()) {
-    console.log('in the get all tasks route, checking what is slow');
+    console.log('in the get all tasks route');
     var userId = mongoose.Types.ObjectId(req.user._id);
-    House.findOne({ members: userId}).then(function(foundHouse) {
+    House.aggregate([
+          { $match: { // Limit search to a specific house
+               members: userId
+          }},
+          { $unwind: "$tasks" },
+          { $sort: { "tasks.date": -1 } },
+          { $limit: 1 }
+           // Flattens the array of tasks to make grouping easier
+        ]).then(function(foundHouse) {
           //console.log('all of everything in the house', foundHouse);
-          console.log('number of tasks in the house', foundHouse.tasks.length);
-          var taskList = foundHouse.tasks;
+          console.log('number of tasks in the house', foundHouse);
+
+
+
+          for (var i = 0; i < foundHouse.length; i++) {
+              var task = foundHouse[i].tasks;
+              taskList.push(task);
+          }
+
+          console.log(taskList);
           res.send(taskList);
 
        }).catch(function(err){
-         console.log('Error with find');
-         res.send(500);
+         console.log('Error with find', err);
+         res.sendStatus(500);
        })
  }  else {
    // failure best handled on the server. do redirect here.
