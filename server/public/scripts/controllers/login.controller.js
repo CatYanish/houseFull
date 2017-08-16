@@ -13,7 +13,8 @@ myApp.controller('LoginController', function($http, $location, UserService) {
     vm.message = '';
 
 
-  ///allows existing users to login
+  ///allows existing users to login, checks to see if they need to create or join a house,
+  // if they have a house, directed to user page.
     vm.login = function() {
       console.log('LoginController -- login');
       if(vm.user.username === '' || vm.user.password === '') {
@@ -23,18 +24,17 @@ myApp.controller('LoginController', function($http, $location, UserService) {
         $http.post('/', vm.user).then(function(response) {
           if(response.data.houseName === undefined) {
             console.log('LoginController -- login -- success: ', response.data);
-            // location works with SPA (ng-route)
-            $location.path('/create'); // http://localhost:5000/#/user
+            $location.path('/create');
           } else if (response.data.houseName !== undefined) {
-            console.log('This user already has a house, direct to /user');
-            $location.path('/user');
+            console.log('This user already has a house, direct to /complete');
+            $location.path('/complete');
           }  else {
             console.log('LoginController -- login -- failure: ', response);
             vm.message = "Wrong!!";
           }
         }).catch(function(response){
           console.log('LoginController -- registerUser -- failure: ', response);
-          vm.message = "Wrong!!";
+          vm.message = "Uh-oh, check your username and password and try again";
         });
       }
     };
@@ -42,7 +42,6 @@ myApp.controller('LoginController', function($http, $location, UserService) {
 
 
     //allows user to register their account
-
     vm.registerUser = function() {
       console.log('LoginController -- registerUser');
       if(vm.user.username === '' || vm.user.password === '') {

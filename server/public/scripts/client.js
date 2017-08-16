@@ -24,9 +24,9 @@ myApp.config(function($routeProvider, $locationProvider, ChartJsProvider) {
         }
       }
     })
-    .when('/user', {
-      templateUrl: '/views/templates/user.html',
-      controller: 'UserController as uc',
+    .when('/complete', {
+      templateUrl: '/views/templates/complete.task.html',
+      controller: 'CompleteController as cc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

@@ -10,12 +10,13 @@
     </canvas>
 
 
-    <div ng-repeat="task in ic.allTasks">
+    <div ng-repeat="task in ic.houseTasks">
       <div class="taskCard col-xs-10">
         <p>{{task.username}}</p>
         <p>{{task.date | date:'medium' }}</p>
         <p>{{task.room}}</p>
         <p>{{task.description}}</p>
+        <button ng-if="ic.userObject.userName == task.username" class="edit-btn"><span class="glyphicon glyphicon-pencil"></span></button>
       </div>
     </div>
 

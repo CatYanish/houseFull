@@ -1,20 +1,20 @@
 <div ng-include="'views/partials/banner.html'"></div>
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div class="user-page">
+<div>
 
 
 
 
-    <h3 type="button" name="button">Post a Completed House Task!</h3>
+    <h3 align="center" type="button" name="button">Post a Completed House Task!</h3>
 
-<form name="form">
+<form name="taskForm">
 
 <div class="taskForm">
 
 
     <div class="form-group">
-      <select class="form-control" type="text" ng-model="uc.completedTask.room">
+      <select class="form-control" type="text" ng-model="cc.completedTask.room">
         <option>Living Room</option>
         <option>Kitchen</option>
         <option>Bathroom</option>
@@ -26,7 +26,7 @@
       </select>
     </div>
     <div class="form-group">
-      <select class="form-control" ng-model="uc.completedTask.time">
+      <select class="form-control" ng-model="cc.completedTask.time">
         <option>10</option>
         <option>20</option>
         <option>30</option>
@@ -42,26 +42,17 @@
       </select>
     </div>
     <div class="form-group">
-      <input type="date" ng-model="uc.completedTask.date">
+      <input type="date" ng-model="cc.completedTask.date">
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="uc.completedTask.description">
+      <input type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="cc.completedTask.description">
     </div>
 
-    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="uc.postTask(uc.userObject.userName, uc.userObject.houseName, uc.userObject.code)">Submit!</button>
+    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="cc.postTask(cc.userObject.userName, cc.userObject.houseName, cc.userObject.code)">Submit!</button>
     </div>
 </form>
 
 
-
-    <div ng-repeat="task in uc.allTasks">
-      <div class="taskCard col-xs-10">
-        <p>{{task.username}}</p>
-        <p>{{task.date | date:'medium' }}</p>
-        <p>{{task.room}}</p>
-        <p>{{task.description}}</p>
-      </div>
-    </div>
 
 
 
