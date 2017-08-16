@@ -5,26 +5,6 @@ myApp.controller('UserController', function($http, $location, UserService) {
   vm.userObject = UserService.userObject;
 
 
-  vm.getTasks = function() {
-    $http.get('/task').then(function(response) {
-    console.log('this is the task response from the server', response.data);
-    vm.allTasks = response.data;
-    })
-
-  }
-
-  vm.getTasks();
-
-
-  vm.completedTask = {
-    username: '',
-    code: '',
-    houseName: '',
-    room: '',
-    time: '',
-    date:'',
-    description: ''
-  };
 
 
   vm.house = {
@@ -40,7 +20,21 @@ myApp.controller('UserController', function($http, $location, UserService) {
 
   }
 
-//modify this to post a completed chore
+
+  //modify this to post a completed chore
+    //move to a separate controller.
+    vm.completedTask = {
+      username: '',
+      code: '',
+      houseName: '',
+      room: '',
+      time: '',
+      date:'',
+      description: ''
+    };
+
+
+//put request to add a completed task, move to a separate controller.
   vm.postTask = function(user, houseName, code) {
     console.log(user);
       vm.completedTask.username = user;
@@ -58,7 +52,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
     }
 
 
-
+  //this reset function clears the input field after the user submits the form.
     vm.reset = function() {
     vm.completedTask = {
       username: '',
@@ -77,13 +71,13 @@ myApp.controller('UserController', function($http, $location, UserService) {
 
     //The toggle functions allow user to either join or create a house, depending on what button they select.
         vm.createVisible = false;
+        vm.joinVisible = false;
+
 
         vm.createToggle = function () {
           vm.createVisible = !vm.createVisible;
         }
 
-
-        vm.joinVisible = false;
 
         vm.joinToggle = function () {
           vm.joinVisible = !vm.joinVisible;
@@ -92,7 +86,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
       ///end of toggle functions
 
 
-    //create a house name.
+  //user can create house name.
     vm.createHouse = function() {
       console.log('LoginController -- createHouse');
       if(vm.house.houseName === ''|| vm.house.code === '') {
@@ -101,26 +95,34 @@ myApp.controller('UserController', function($http, $location, UserService) {
         console.log('UserController -- createHouse -- sending to server...', vm.house);
         $http.post('/register/house', vm.house).then(function(response) {
           console.log('UserController -- createHouse -- success');
-          $location.path('/user');
+          $location.path('/complete');
         })
       }
     } //end of create house post function
 
 
 
+//user can join an existing house
     vm.joinHouse = function() {
       console.log('LoginController -- createHouse');
-      // if(vm.house.code === '') {
-      //   vm.message = "Uh-oh, try your house code again!";
-      // } else if (vm.house.houseName === '') {
-      //   vm.message = "Check your house name and try again!"
-      // } else {
+
         console.log('UserController -- joinHouse -- sending to server...', vm.join);
         $http.put('/register/join', vm.join).then(function(response) {
           console.log('UserController -- createHouse -- success');
-          $location.path('/user');
+          $location.path('/complete');
         })
       }
     //end of create house post function
+
+
+
+    //info to email with nodemailer
+    vm.example = "this is some text";
+
+    vm.emailUser = function() {
+      $http.post('/mailer', vm.example).then(function(response) {
+        console.log('posted to send email');
+      })
+    }
 
   }); //end of user.controller

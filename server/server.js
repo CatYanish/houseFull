@@ -14,6 +14,7 @@ var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
 var taskRouter = require('./routes/task.router.js');
 var chartRouter = require('./routes/chart.router.js');
+var nodeMailer = require('./routes/mailer.js');
 
 var port = process.env.PORT || 5000;
 
@@ -36,6 +37,7 @@ app.use('/register', registerRouter);
 app.use('/user', userRouter);
 app.use('/task', taskRouter);
 app.use('/chart', chartRouter);
+app.use('/mailer', nodeMailer);
 
 // Catch all bucket, must be last!
 app.use('/', indexRouter);
