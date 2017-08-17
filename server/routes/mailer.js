@@ -9,6 +9,9 @@ var password = process.env.PASS || require('../modules/mail.config.js').password
 
 // handle the route at yourdomain.com/sayHello
 router.post('/', function(req, res, next) {
+  console.log('house name from req body', req.body.houseName);
+  console.log('house code from req body', req.body.code);
+  console.log('email address from req body', req.body.email);
   console.log('post /register route');
   var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -19,10 +22,10 @@ router.post('/', function(req, res, next) {
   });
 
   var mailOptions = {
-    from: 'catyanish@gmail.com',
-    to: 'catyanish@gmail.com',
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
+    from: 'housefull.antares@gmail.com',
+    to: req.body.email,
+    subject: 'You\'re Invited to Join the HouseFull App!',
+    text: 'Create an account and then join your house with this house name' + req.body.houseName + ' and this code' + req.body.code + 'Happy housing!'
   };
 
   transporter.sendMail(mailOptions, function(error, info){

@@ -24,6 +24,15 @@ myApp.config(function($routeProvider, $locationProvider, ChartJsProvider) {
         }
       }
     })
+    .when('/invite', {
+      templateUrl: '/views/templates/mail.html',
+      controller: 'UserController as uc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/complete', {
       templateUrl: '/views/templates/complete.task.html',
       controller: 'CompleteController as cc',

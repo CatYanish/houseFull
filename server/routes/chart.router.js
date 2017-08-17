@@ -14,7 +14,9 @@ console.log('in the get /chart route');
       { $match: { // Limit search to a specific house
           members: userId
       }},
-      { $unwind: "$tasks" }, // Flattens the array of tasks to make grouping easier
+      { $unwind: "$tasks" },
+      { $sort: { "tasks.date": -1 } },
+      { $limit: 20 }, // Flattens the array of tasks to make grouping easier
       { $group: {
            _id: "$tasks.username", // Group by
            total: { $sum: "$tasks.time" } // Sum field

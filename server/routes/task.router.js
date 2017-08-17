@@ -54,7 +54,7 @@ router.get('/', function(req, res) {
           }},
           { $unwind: "$tasks" },
           { $sort: { "tasks.date": -1 } },
-          { $limit: 1 }
+          { $limit: 10 }
            // Flattens the array of tasks to make grouping easier
         ]).then(function(foundHouse) {
           //console.log('all of everything in the house', foundHouse);
