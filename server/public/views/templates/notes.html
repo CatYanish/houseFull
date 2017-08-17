@@ -27,13 +27,15 @@
       <textarea rows="4" type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="nc.note.body"></textarea>
     </div>
 
-    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="nc.postNote(nc.userObject.userName, nc.userObject.houseName, nc.userObject.code)">Post Note!</button>
+    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="nc.postNote(nc.userObject.userName, nc.userObject.houseName, nc.userObject.code, nc.note.catogory)">Post Note!</button>
     </div>
 </form>
 
+
 <div ng-repeat="note in nc.houseNotes">
-  <div class="taskCard col-xs-10">
-    <p>{{note.username}}</p>
+  <div class="noteCard col-xs-10">
+    <img src="{{note.icon}}">
+    <p><strong>{{note.username}}</strong></p>
     <p>{{note.body}}</p>
     <p>{{note.category}}</p>
     <button ng-click="nc.delete(note._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>

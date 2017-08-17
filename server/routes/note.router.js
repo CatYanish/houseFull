@@ -16,7 +16,8 @@ router.put('/', function(req, res) {
       username : req.body.username,
       userId: req.user._id,
       category: req.body.room,
-      body: req.body.body
+      body: req.body.body,
+      icon: req.body.icon
     };
 
 
