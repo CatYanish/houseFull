@@ -12,11 +12,21 @@ var TaskSchema = new Schema({
     description: {type: String}
 });
 
+
+var NoteSchema = new Schema({
+    username: {type: String},
+    userId: {type: mongoose.Schema.Types.ObjectId},
+    category: {type: String},
+    body: {type: String}
+});
+
+
 var HouseSchema = new Schema ({
   houseName: {type: String},
   code: {type: String},
   members: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-  tasks: [TaskSchema]
+  tasks: [TaskSchema],
+  notes: [NoteSchema]
 });
 
 

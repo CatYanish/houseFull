@@ -7,63 +7,65 @@ myApp.controller('NoteController', function($http, $location, UserService) {
 
   //modify this to post a completed chore
     //move to a separate controller.
-    vm.completedTask = {
+    vm.note = {
       username: '',
       code: '',
       houseName: '',
-      room: '',
-      time: '',
-      date:'',
-      description: ''
+      category: '',
+      body: ''
     };
 
     //this reset function clears the input field after the user submits the form.
       vm.reset = function() {
-      vm.completedTask = {
+      vm.note = {
         username: '',
         code: '',
         houseName: '',
-        room: '',
-        time: '',
-        date:'',
-        description: ''
+        category: '',
+        body: ''
       };
     }
 
 //put request to add a completed task.
-  vm.postTask = function(user, houseName, code) {
+  vm.postNote = function(user, houseName, code) {
     console.log(user);
-      vm.completedTask.username = user;
-      vm.completedTask.houseName = houseName;
-      vm.completedTask.code = code;
-      console.log('UserController -- task -- sending to server...', vm.completedTask);
-      $http.put('/task', vm.completedTask).then(function(response) {
+      vm.note.username = user;
+      vm.note.houseName = houseName;
+      vm.note.code = code;
+      console.log('NoteController -- task -- sending to server...', vm.note);
+      $http.put('/note', vm.note).then(function(response) {
         console.log(response);
         // vm.getTasks();
         vm.reset();
-        sweetAlert('Congratulations!', 'Your message has been successfully sent', 'success');
-
+        vm.getNotes();
       }).catch(function(response){
-        console.log('UserController -- post task -- failure: ', response);
+        console.log('NoteController -- post task -- failure: ', response);
         vm.message = "Uh-oh, Post not updated!";
       });
     }
 
 
 
-    //
-    // //gets all tasks and populates user.html (should move to task controller)
-    //   vm.getTasks = function() {
-    //     $http.get('/task').then(function(response) {
-    //     console.log('this is the complete list from the get all req', response.data);
-    //     vm.allTasks = response.data;
-    //     })
-    //
-    //   }
-    //
-    //   vm.getTasks();
 
+    //gets all tasks and populates user.html (should move to task controller)
+      vm.getNotes = function() {
+        $http.get('/note').then(function(response) {
+        console.log('this is the complete list from the get all req', response.data);
+        vm.houseNotes = response.data;
+        })
 
+      }
+
+      vm.getNotes();
+
+      vm.delete = function(id) {
+          console.log('delete rental with id: ', id);
+          $http.delete('/note/' + id)
+          .then(function(response) {
+            console.log(response);
+            vm.getNotes();
+          })
+        } // end delete
 
 
 

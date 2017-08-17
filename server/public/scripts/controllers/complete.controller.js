@@ -41,7 +41,6 @@ myApp.controller('CompleteController', function($http, $location, UserService) {
         console.log(response);
         // vm.getTasks();
         vm.reset();
-        sweetAlert('Congratulations!', 'Your message has been successfully sent', 'success');
 
       }).catch(function(response){
         console.log('UserController -- post task -- failure: ', response);
