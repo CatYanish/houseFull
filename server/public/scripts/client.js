@@ -33,6 +33,15 @@ myApp.config(function($routeProvider, $locationProvider, ChartJsProvider) {
         }
       }
     })
+    .when('/note', {
+      templateUrl: '/views/templates/notes.html',
+      controller: 'NoteController as nc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/complete', {
       templateUrl: '/views/templates/complete.task.html',
       controller: 'CompleteController as cc',
@@ -56,4 +65,4 @@ myApp.config(function($routeProvider, $locationProvider, ChartJsProvider) {
     });
 
 
-});
+});  //end of info controller

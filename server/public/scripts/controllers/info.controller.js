@@ -1,4 +1,4 @@
-myApp.controller('InfoController', function($http, $location, UserService) {
+myApp.controller('InfoController', function($http, $uibModal, $location, UserService) {
   console.log('InfoController created');
   var vm = this;
   vm.userService = UserService;
@@ -17,6 +17,14 @@ myApp.controller('InfoController', function($http, $location, UserService) {
     vm.getTasks();
 
 
+    vm.delete = function(id) {
+        console.log('delete rental with id: ', id);
+        $http.delete('/task/' + id)
+        .then(function(response) {
+          console.log(response);
+          vm.getTasks();
+        })
+      } // end delete
 
 
 //get username and total time to populate chart data
@@ -46,4 +54,20 @@ myApp.controller('InfoController', function($http, $location, UserService) {
 
   vm.getData();
 
-});
+vm.showModal = false;
+
+  vm.open = function() {
+    vm.showModal = true;
+  };
+
+  vm.ok = function() {
+    vm.showModal = false;
+  };
+
+  vm.cancel = function() {
+    vm.showModal = false;
+  };
+
+
+
+}); //end of infocontroller

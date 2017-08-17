@@ -188,6 +188,12 @@ li a:hover {
   margin-bottom: 10px;
 }
 
+.trash-btn {
+  position: relative;
+  right: -150px;
+  margin-bottom: 10px;
+}
+
 .btn-invite {
   font-size: 20px;
   font-weight: bold;

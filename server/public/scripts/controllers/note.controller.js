@@ -1,5 +1,5 @@
-myApp.controller('CompleteController', function($http, $location, UserService) {
-  console.log('CompleteTaskController created');
+myApp.controller('NoteController', function($http, $location, UserService) {
+  console.log('NoteController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
