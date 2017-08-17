@@ -12,7 +12,8 @@ myApp.controller('NoteController', function($http, $location, UserService) {
       code: '',
       houseName: '',
       category: '',
-      body: ''
+      body: '',
+      icon: ''
     };
 
     //this reset function clears the input field after the user submits the form.
@@ -32,7 +33,32 @@ myApp.controller('NoteController', function($http, $location, UserService) {
       vm.note.username = user;
       vm.note.houseName = houseName;
       vm.note.code = code;
-      console.log('NoteController -- task -- sending to server...', vm.note);
+
+
+    switch (vm.note.category) {
+      case 'Finances':
+        vm.note.icon = '../assets/coins.png';
+        break;
+      case'Food':
+        vm.note.icon = '../assets/groceries.png';
+      break;
+      case 'Cleaning':
+        vm.note.icon = '../assets/liquid-soap.png';
+      break;
+      case 'Visitors':
+        vm.note.icon = '../assets/reunion.png';
+      break;
+      case 'Shopping':
+        vm.note.icon = '../assets/cart.png';
+      break;
+      case 'Other':
+        vm.note.icon = '../assets/star.png';
+      break;
+  }
+
+
+  console.log('NoteController -- task -- sending to server...', vm.note);
+
       $http.put('/note', vm.note).then(function(response) {
         console.log(response);
         // vm.getTasks();
