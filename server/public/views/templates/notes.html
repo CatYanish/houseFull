@@ -31,16 +31,14 @@
     </div>
 </form>
 
-<!-- <div ng-repeat="task in ic.houseTasks">
+<div ng-repeat="note in nc.houseNotes">
   <div class="taskCard col-xs-10">
-    <p>{{task.username}}</p>
-    <p>{{task.date | date:'medium' }}</p>
-    <p>{{task.room}}</p>
-    <p>{{task.description}}</p>
-    <button ng-if="ic.userObject.userName == task.username" class="edit-btn"><span class="glyphicon glyphicon-pencil"></span></button>
-    <button ng-click="ic.delete(task._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
+    <p>{{note.username}}</p>
+    <p>{{note.body}}</p>
+    <p>{{note.category}}</p>
+    <button ng-click="nc.delete(note._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
   </div>
-</div> -->
+</div>
 
 
 

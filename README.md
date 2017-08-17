@@ -63,4 +63,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+Thank you to the create of FlatIcon, I used these awesome icons to style my app.
+
+Icon made by [author link] from www.flaticon.com
+E.g.: Icon made by Freepik from www.flaticon.com
