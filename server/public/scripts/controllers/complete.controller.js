@@ -50,17 +50,17 @@ myApp.controller('CompleteController', function($http, $location, UserService) {
 
 
 
-
-    //gets all tasks and populates user.html (should move to task controller)
-      vm.getTasks = function() {
-        $http.get('/task').then(function(response) {
-        console.log('this is the complete list from the get all req', response.data);
-        vm.allTasks = response.data;
-        })
-
-      }
-
-      vm.getTasks();
+    // 
+    // //gets all tasks and populates user.html (should move to task controller)
+    //   vm.getTasks = function() {
+    //     $http.get('/task').then(function(response) {
+    //     console.log('this is the complete list from the get all req', response.data);
+    //     vm.allTasks = response.data;
+    //     })
+    //
+    //   }
+    //
+    //   vm.getTasks();
 
 
 

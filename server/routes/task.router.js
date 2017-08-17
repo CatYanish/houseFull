@@ -40,7 +40,6 @@ router.put('/', function(req, res) {
 }); //end put function
 
 
-  var taskList = [];
 
 
 //this route sends a list of all the tasks completed in the house//
@@ -54,20 +53,22 @@ router.get('/', function(req, res) {
           }},
           { $unwind: "$tasks" },
           { $sort: { "tasks.date": -1 } },
-          { $limit: 10 }
+          { $limit: 50 }
            // Flattens the array of tasks to make grouping easier
         ]).then(function(foundHouse) {
           //console.log('all of everything in the house', foundHouse);
-          console.log('number of tasks in the house', foundHouse);
+          console.log('this is foundhouse response', foundHouse);
 
+          var taskList = [];
 
 
           for (var i = 0; i < foundHouse.length; i++) {
+            console.log('this is foundhouse[i].tasks', foundHouse[i].tasks);
               var task = foundHouse[i].tasks;
               taskList.push(task);
           }
 
-          console.log(taskList);
+          console.log('here is the array I want to push to', taskList);
           res.send(taskList);
 
        }).catch(function(err){
