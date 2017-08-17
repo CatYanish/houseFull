@@ -85,7 +85,26 @@ router.get('/', function(req, res) {
 
 
 
-
+router.delete('/:id', function(req, res) {
+  console.log('DELETE WITH ID: ', req.params.id);
+  console.log('Is passport ID same as Mongo', req.user._id);
+  var userId = req.user._id;
+  var taskId = req.params.id;
+  House.update(
+    { // Limit search to a specific house
+         members: userId
+    }, // Limit search to aspecific house
+      { $pull : { tasks: { _id: req.params.id }}},
+    function(err, data) {
+      if(err) {
+        console.log('remove error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    }
+  )
+}); //end delete
 
 
 

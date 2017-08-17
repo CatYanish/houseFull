@@ -18,9 +18,26 @@
         <p>{{task.room}}</p>
         <p>{{task.description}}</p>
         <button ng-if="ic.userObject.userName == task.username" class="edit-btn"><span class="glyphicon glyphicon-pencil"></span></button>
+        <button ng-click="ic.delete(task._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
       </div>
     </div>
 
 
+    <!-- test modal stuff -->
+    <!-- <button class="btn" ng-click="open()">Open Modal</button>
+
+    <div modal="showModal" close="cancel()">
+      <div class="modal-header">
+          <h4>Modal Dialog</h4>
+      </div>
+      <div class="modal-body">
+          <p>Example paragraph with some text.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" ng-click="ok()">Okay</button>
+        <button class="btn" ng-click="cancel()">Cancel</button>
+      </div>
+    </div> -->
+<!-- test modal stuff -->
 
 </div>
