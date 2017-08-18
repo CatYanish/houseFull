@@ -2,7 +2,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <p>
-    In Info
+    Completed Tasks
   </p>
 
 
@@ -11,7 +11,7 @@
     </canvas>
 
 
-    <div ng-repeat="task in ic.houseTasks">
+    <div ng-repeat="task in ic.houseTasks | orderBy : '[]': true">
       <div class="taskCard col-xs-10">
         <p>{{task.username}}</p>
         <p>{{task.date | date:'medium' }}</p>

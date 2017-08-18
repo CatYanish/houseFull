@@ -74,12 +74,15 @@ vm.invite = {
   email: ''
 }
 
+
+
     vm.emailUser = function(houseName, code) {
       vm.invite.houseName = houseName;
       vm.invite.code = code;
-    console.log('object to send in email', vm.invite); 
+    console.log('object to send in email', vm.invite);
       $http.post('/mailer', vm.invite).then(function(response) {
         console.log('posted to send email', vm.invite);
+
       })
     }
 

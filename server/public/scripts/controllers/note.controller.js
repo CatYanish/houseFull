@@ -46,7 +46,7 @@ myApp.controller('NoteController', function($http, $location, UserService) {
         vm.note.icon = '../assets/liquid-soap.png';
       break;
       case 'Visitors':
-        vm.note.icon = '../assets/reunion.png';
+        vm.note.icon = '../assets/team.png';
       break;
       case 'Shopping':
         vm.note.icon = '../assets/cart.png';

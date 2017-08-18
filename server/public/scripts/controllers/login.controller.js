@@ -27,7 +27,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
             $location.path('/create');
           } else if (response.data.houseName !== undefined) {
             console.log('This user already has a house, direct to /complete');
-            $location.path('/complete');
+            $location.path('/note');
           }  else {
             console.log('LoginController -- login -- failure: ', response);
             vm.message = "Wrong!!";

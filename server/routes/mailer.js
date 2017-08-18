@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
     from: 'housefull.antares@gmail.com',
     to: req.body.email,
     subject: 'You\'re Invited to Join the HouseFull App!',
-    text: 'Create an account and then join your house with this house name' + req.body.houseName + ' and this code' + req.body.code + 'Happy housing!'
+    text: 'Create an account and then join your house with this house name ' + req.body.houseName + ' and this code ' + req.body.code + '. Happy housing!'
   };
 
   transporter.sendMail(mailOptions, function(error, info){

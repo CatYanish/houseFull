@@ -41,7 +41,7 @@ myApp.controller('CompleteController', function($http, $location, UserService) {
         console.log(response);
         // vm.getTasks();
         vm.reset();
-
+        $location.path('/info');
       }).catch(function(response){
         console.log('UserController -- post task -- failure: ', response);
         vm.message = "Uh-oh, Post not updated!";

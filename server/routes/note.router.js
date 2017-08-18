@@ -52,6 +52,7 @@ router.get('/', function(req, res) {
                members: userId
           }},
           { $unwind: "$notes" },
+          { $sort: { "notes.date": -1 } },
           { $limit: 50 }
            // Flattens the array of tasks to make grouping easier
         ]).then(function(foundNotes) {
