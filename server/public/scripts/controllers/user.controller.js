@@ -47,7 +47,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
         console.log('UserController -- createHouse -- sending to server...', vm.house);
         $http.post('/register/house', vm.house).then(function(response) {
           console.log('UserController -- createHouse -- success');
-          $location.path('/complete');
+          $location.path('/note');
         })
       }
     } //end of create house post function
@@ -61,7 +61,7 @@ myApp.controller('UserController', function($http, $location, UserService) {
         console.log('UserController -- joinHouse -- sending to server...', vm.join);
         $http.put('/register/join', vm.join).then(function(response) {
           console.log('UserController -- createHouse -- success');
-          $location.path('/complete');
+          $location.path('/note');
         })
       }
     //end of create house post function

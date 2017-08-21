@@ -14,7 +14,7 @@ body, html {
 /*Main Banner*/
 .instructions {
   background-color: #FF6633;
-  color: #DDDDDD;
+  color: white;
   padding: 15px;
 }
 
@@ -228,5 +228,5 @@ li a:hover {
 
 
 .icon {
-  padding: 10px;
+  padding: 10px 10px 10px 0;
 }
