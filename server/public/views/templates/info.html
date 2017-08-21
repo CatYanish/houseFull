@@ -17,7 +17,7 @@
         <p>{{task.date | date:'medium' }}</p>
         <p>{{task.room}}</p>
         <p>{{task.description}}</p>
-        <button ng-if="ic.userObject.userName == task.username" class="edit-btn"><span class="glyphicon glyphicon-pencil"></span></button>
+        <button ng-if="ic.userObject.userName == task.username" class="edit-btn" ng-click="ic.edit(task._id)"><span class="glyphicon glyphicon-pencil"></span></button>
         <button ng-click="ic.delete(task._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
       </div>
     </div>

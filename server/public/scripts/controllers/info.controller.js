@@ -54,6 +54,15 @@ myApp.controller('InfoController', function($http, $uibModal, $location, UserSer
 
   vm.getData();
 
+
+
+  vm.edit = function(id) {
+    console.log('this is the task id to edit', id);
+    $location.path('/edit');
+  }
+
+
+
 vm.showModal = false;
 
   vm.open = function() {

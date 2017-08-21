@@ -78,6 +78,7 @@ myApp.controller('NoteController', function($http, $location, UserService) {
         $http.get('/note').then(function(response) {
         console.log('this is the complete list from the get all req', response.data);
         vm.houseNotes = response.data;
+
         })
 
       }
