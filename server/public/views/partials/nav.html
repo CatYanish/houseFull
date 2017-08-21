@@ -1,11 +1,11 @@
 <div ng-controller="NavController as nc" class="navbar">
   <div class="container">
     <ul>
-      <li><a href="#/complete">Post</a></li>
-      <li><a href="#/info">See Tasks</a></li>
-      <li><a href="#/note">Notes</a></li>
-      <li><a href="#/invite">Invite</a></li>
-      <li><span ng-click="nc.userService.logout()">Log Out</span></li>
+      <!-- <li><a href="#/complete"><div class="glyphicon glyphicon-plus"></div><div>Post</div></a></li> -->
+      <li><a href="#/info"><div class="glyphicon glyphicon-tasks"></div><div>Tasks</div></a></li>
+      <li><a href="#/note"><div class="glyphicon glyphicon-list-alt"></div><div>Notes</div></a></li>
+      <li><a href="#/invite"><div class="glyphicon glyphicon-envelope"></div><div>Invite</div></a></li>
+      <li><span ng-click="nc.userService.logout()"><div class="glyphicon glyphicon-log-out"></div><div>Log Out</div></span></li>
     </ul>
   </div>
 </div>
