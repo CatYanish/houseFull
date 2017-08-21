@@ -68,9 +68,16 @@ myApp.controller('NoteController', function($http, $location, UserService) {
 
       $http.put('/note', vm.note).then(function(response) {
         console.log(response);
-        // vm.getTasks();
         vm.reset();
-        vm.getNotes();
+        swal({
+        title: 'Posted!',
+        text: 'Awesome! Your note was added!',
+        type: 'success',
+        confirmButtonText: 'Excellent'
+        }) //end of sweetAlert
+        $location.path('/note');
+
+
       }).catch(function(response){
         console.log('NoteController -- post task -- failure: ', response);
         vm.message = "Uh-oh, Post not updated!";

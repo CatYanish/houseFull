@@ -283,6 +283,19 @@ li a:hover {
   color: white;
 }
 
+
+
+.goToNote {
+  background-color: #FFCC66;
+  margin: 0px;
+  padding: 10px;
+}
+
+.goToNote div {
+  margin: 10px;
+  color: white;
+}
+
 .trash-note {
   position: relative;
   left: 150px;
