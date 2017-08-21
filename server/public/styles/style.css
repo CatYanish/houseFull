@@ -213,7 +213,7 @@ li a:hover {
 }
 
 
-.noteCard {
+.financesCard {
   background-color: #666699;
   border-radius: 10px;
   color: white;
@@ -222,6 +222,50 @@ li a:hover {
   margin-left: 30px;
 }
 
+.foodCard {
+  background-color: #66CC99;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.cleaningCard {
+  background-color: #6699CC;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.visitorsCard {
+  background-color: #99CCFF;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.shoppingCard {
+  background-color: #FFCC66;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.otherCard {
+  background-color: #FF9999;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
 
 
 .icon {
@@ -237,4 +281,9 @@ li a:hover {
 .goToPost div {
   margin: 10px;
   color: white;
+}
+
+.trash-note {
+  position: relative;
+  left: 150px;
 }
