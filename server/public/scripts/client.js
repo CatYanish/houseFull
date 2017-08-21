@@ -23,6 +23,14 @@ myApp.config(function($routeProvider, $locationProvider, ChartJsProvider) {
           return UserService.getuser();
         }
       }
+    }).when('/new', {
+      templateUrl: '/views/templates/newNote.html',
+      controller: 'NoteController as nc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
     })
     .when('/invite', {
       templateUrl: '/views/templates/mail.html',

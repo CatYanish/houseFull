@@ -1,14 +1,16 @@
 <!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
-
+<div class="navbar goToNote">
+  <a href="#/new"><div class="postLink"><span class="glyphicon glyphicon-plus"></span>  Add a Note</div></a>
+</div>
 <div>
 
 
 
 
-    <h3 align="center" type="button" name="button">Share a House Note</h3>
+  <h1 align="center" type="button" name="button">House Notes</h1>
 
-<form name="taskForm">
+<!-- <form name="taskForm">
 
 <div class="taskForm">
 
@@ -29,7 +31,7 @@
 
     <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="nc.postNote(nc.userObject.userName, nc.userObject.houseName, nc.userObject.code, nc.note.catogory)">Post Note!</button>
     </div>
-</form>
+</form> -->
 
 
 <div ng-repeat="note in nc.houseNotes | orderBy : '[]': true">
