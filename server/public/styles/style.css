@@ -2,7 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Work Sans', sans-serif;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 /*Main Banner HouseFull H1*/
@@ -66,6 +66,7 @@ body, html {
   background-color: #FF9966;
   width: 100%;
   border-radius: 0px;
+  margin: 0;
 }
 
 
@@ -151,7 +152,7 @@ li {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 14px;
 
 }
 
@@ -182,17 +183,12 @@ li a:hover {
   max-height: 350px;
 }
 
-.edit-btn {
+.trash-btn {
   position: relative;
   left: 230px;
   margin-bottom: 10px;
 }
 
-.trash-btn {
-  position: relative;
-  right: -150px;
-  margin-bottom: 10px;
-}
 
 .btn-invite {
   font-size: 20px;
@@ -229,4 +225,15 @@ li a:hover {
 
 .icon {
   padding: 10px 10px 10px 0;
+}
+
+.goToPost {
+  background-color: #9999CC;
+  margin: 0px;
+  padding: 10px;
+}
+
+.goToPost div {
+  margin: 10px;
+  color: white;
 }

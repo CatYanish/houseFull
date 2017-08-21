@@ -1,23 +1,27 @@
-<div ng-include="'views/partials/banner.html'"></div>
+<!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
+<div class="navbar goToPost">
+  <a href="#/complete"><div class="postLink"><span class="glyphicon glyphicon-edit"></span>  Post a Completed Task</div></a>
+</div>
 <div class="container">
-  <p>
-    Completed Tasks
+
+
+
+
+  <p align="center">
+    Total Time Spent on House Tasks, in Minutes
   </p>
-
-
     <canvas id="doughnut" class="chart chart-doughnut"
       chart-data="ic.data" chart-labels="ic.labels" chart-colors="colors">
     </canvas>
 
 
-    <div ng-repeat="task in ic.houseTasks | orderBy : '[]': true">
+    <div ng-repeat="task in ic.houseTasks">
       <div class="taskCard col-xs-10">
         <p>{{task.username}}</p>
         <p>{{task.date | date:'medium' }}</p>
         <p>{{task.room}}</p>
         <p>{{task.description}}</p>
-        <button ng-if="ic.userObject.userName == task.username" class="edit-btn" ng-click="ic.edit(task._id)"><span class="glyphicon glyphicon-pencil"></span></button>
         <button ng-click="ic.delete(task._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
       </div>
     </div>

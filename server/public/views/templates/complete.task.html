@@ -1,16 +1,15 @@
-<div ng-include="'views/partials/banner.html'"></div>
+<!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div>
+<div class="taskBackground">
 
 
-
+<div class="taskForm">
 
     <h3 align="center" type="button" name="button">Post a Completed House Task!</h3>
 
 <form name="taskForm">
 
-<div class="taskForm">
 
 
     <div class="form-group">
@@ -49,10 +48,10 @@
     </div>
 
     <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="cc.postTask(cc.userObject.userName, cc.userObject.houseName, cc.userObject.code)">Submit!</button>
-    </div>
+
 </form>
 
-
+    </div>
 
 
 
