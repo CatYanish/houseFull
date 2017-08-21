@@ -18,7 +18,8 @@ var NoteSchema = new Schema({
     userId: {type: mongoose.Schema.Types.ObjectId},
     category: {type: String},
     body: {type: String},
-    icon: {type: String}
+    icon: {type: String},
+    color: {type: String}
 });
 
 

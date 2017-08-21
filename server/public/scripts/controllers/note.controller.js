@@ -13,7 +13,8 @@ myApp.controller('NoteController', function($http, $location, UserService) {
       houseName: '',
       category: '',
       body: '',
-      icon: ''
+      icon: '',
+      color: ''
     };
 
     //this reset function clears the input field after the user submits the form.
@@ -38,21 +39,27 @@ myApp.controller('NoteController', function($http, $location, UserService) {
     switch (vm.note.category) {
       case 'Finances':
         vm.note.icon = '../assets/change.png';
+        vm.note.color = 'finances';
         break;
       case'Food':
         vm.note.icon = '../assets/apple.png';
+        vm.note.color = 'food';
       break;
       case 'Cleaning':
         vm.note.icon = '../assets/liquid-soap.png';
+        vm.note.color = 'cleaning';
       break;
       case 'Visitors':
         vm.note.icon = '../assets/team.png';
+        vm.note.color = 'visitors';
       break;
       case 'Shopping':
         vm.note.icon = '../assets/online-store.png';
+        vm.note.color = 'shopping';
       break;
       case 'Other':
         vm.note.icon = '../assets/information.png';
+        vm.note.color = 'other';
       break;
   }
 

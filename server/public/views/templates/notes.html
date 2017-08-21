@@ -33,12 +33,11 @@
 
 
 <div ng-repeat="note in nc.houseNotes | orderBy : '[]': true">
-  <div class="noteCard col-xs-10">
-    <img class="icon" ng-src="{{note.icon}}">
-    <p>{{note.username}}</p>
-    <p>{{note.body}}</p>
-    <p>{{note.category}}</p>
-    <button ng-click="nc.delete(note._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
+  <div class="{{note.color}}Card col-xs-10">
+    <img class="icon col-xs-3" ng-src="{{note.icon}}">
+    <p class="col-xs-5">{{note.username}} </p>
+    <p class="col-xs-7">{{note.body}}</p>
+    <button class="trash-note col-xs-8" ng-click="nc.delete(note._id)" ng-if="nc.userObject.userName == note.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
   </div>
 </div>
 
