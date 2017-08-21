@@ -37,10 +37,10 @@ myApp.controller('NoteController', function($http, $location, UserService) {
 
     switch (vm.note.category) {
       case 'Finances':
-        vm.note.icon = '../assets/coins.png';
+        vm.note.icon = '../assets/change.png';
         break;
       case'Food':
-        vm.note.icon = '../assets/groceries.png';
+        vm.note.icon = '../assets/apple.png';
       break;
       case 'Cleaning':
         vm.note.icon = '../assets/liquid-soap.png';
@@ -49,10 +49,10 @@ myApp.controller('NoteController', function($http, $location, UserService) {
         vm.note.icon = '../assets/team.png';
       break;
       case 'Shopping':
-        vm.note.icon = '../assets/cart.png';
+        vm.note.icon = '../assets/online-store.png';
       break;
       case 'Other':
-        vm.note.icon = '../assets/star.png';
+        vm.note.icon = '../assets/information.png';
       break;
   }
 
