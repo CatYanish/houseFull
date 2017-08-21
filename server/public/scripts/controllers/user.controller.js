@@ -75,14 +75,30 @@ vm.invite = {
 }
 
 
-
     vm.emailUser = function(houseName, code) {
       vm.invite.houseName = houseName;
       vm.invite.code = code;
     console.log('object to send in email', vm.invite);
       $http.post('/mailer', vm.invite).then(function(response) {
-        console.log('posted to send email', vm.invite);
+        console.log(response.data);
+        if (response.data == 250) {
+          swal({
+          title: 'Sent!',
+          text: 'Awesome! Your housemate has been emailed with an invitation to join!',
+          type: 'success',
+          confirmButtonText: 'Cool'
+          }) //end of sweetAlert
+          console.log('posted to send email', vm.invite);
+          vm.invite.email = '';
+        } else {
+          swal({
+          title: 'Error!',
+          text: 'Uh-oh, something went wrong. Check your address, and try again.',
+          type: 'Error',
+          confirmButtonText: 'Okay'
+          }) //end of sweetAlert
 
+        }
       })
     }
 
