@@ -1,16 +1,25 @@
 # Name of Project
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Many roommates struggle to coordinate house chores and information about shopping, house guests, or utilities with their roommates in a supportive, organized manner.
+
+HouseFull users can register and create a house, and send email invites for their roommates to join. Signed in users can view and post house notes, which are displayed with custom themes to visually organize notes by category. Users can also post completed chores, and view lists and a responsive chart to visualize contributions by roommate.  
+
+HouseFull is a full-stack web application built with JavaScript, AngularJS, Express, Node.js, Passport, Mongo, Mongoose, NodeMailer, Bootstrap, HTML, CSS, and Angular-Chart.
+
 
 ## Built With
 
-MEAN Stack
---Mongo
---Angular
---Express.js
---Node.js
 
-Styled with Bootstrap
+--MongoDB
+--Mongoose
+--JavaScript
+--AngularJS 1.6.5
+--Express
+--Node.js
+--angular-chart
+--nodeMailer
+--passport
+--Bootstrap
 
 
 
@@ -33,7 +42,10 @@ Steps to get the development environment running.
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![Screenshot](/ScreenShot1.png)
+![Screenshot](/ScreenShot3.png)
+![Screenshot](/ScreenShot2.png)
+
 
 ## Documentation
 
@@ -58,7 +70,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* Name of author(s)
+* Catherine Yanish
 
 
 ## Acknowledgments

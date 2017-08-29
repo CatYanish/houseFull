@@ -38,9 +38,6 @@ router.post('/', function(req, res, next) {
     }
   });
 
-
-
-
 }); //end of create user post req.
 
 

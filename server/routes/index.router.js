@@ -10,7 +10,6 @@ router.post('/',
         successRedirect: '/user'   // goes to routes/user.js
     })
 );
-
 // Handle index file separately
 // Also catches any other request not explicitly matched elsewhere
 router.get('/', function(req, res) {

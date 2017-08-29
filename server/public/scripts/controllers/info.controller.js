@@ -5,18 +5,17 @@ myApp.controller('InfoController', function($http, $uibModal, $location, UserSer
   vm.userObject = UserService.userObject;
 
 
-  //gets all tasks and populates user.html (should move to task controller)
+  //gets all tasks and populates user.html
     vm.getTasks = function() {
       $http.get('/task').then(function(response) {
       console.log('this is the complete list from the get all req', response.data);
       vm.houseTasks = response.data;
       })
-
     }
 
     vm.getTasks();
 
-
+// Delete a task
     vm.delete = function(id) {
         console.log('delete rental with id: ', id);
         $http.delete('/task/' + id)
@@ -27,14 +26,12 @@ myApp.controller('InfoController', function($http, $uibModal, $location, UserSer
       } // end delete
 
 
-//get username and total time to populate chart data
-
+//Angular Chart
   vm.getData = function() {
     $http.get('/chart').then(function(response) {
     console.log('this is the task response from the server', response.data);
 
     //these arrays control the chart
-    vm.colors = ["#9999CC", "#FF9966","#CC9999","#FF9999","#99CCCC"];
     vm.labels = [];
     vm.data = [];
 
@@ -45,38 +42,18 @@ myApp.controller('InfoController', function($http, $uibModal, $location, UserSer
       console.log(vm.total);
       vm.labels.push(vm.username);
       vm.data.push(vm.total);
-
     }
     vm.allTasks = response.data;
     })
-
   } //end of get request.
 
   vm.getData();
 
-
-
+//This edit path is just a stub, not a full path
   vm.edit = function(id) {
     console.log('this is the task id to edit', id);
     $location.path('/edit');
   }
-
-
-
-vm.showModal = false;
-
-  vm.open = function() {
-    vm.showModal = true;
-  };
-
-  vm.ok = function() {
-    vm.showModal = false;
-  };
-
-  vm.cancel = function() {
-    vm.showModal = false;
-  };
-
 
 
 }); //end of infocontroller

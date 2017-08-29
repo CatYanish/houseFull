@@ -15,21 +15,21 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   console.log('post /register route');
 
-    var userToSave = {
-      username : req.body.username,
-      password : req.body.password,
-    };
+  var userToSave = {
+    username : req.body.username,
+    password : req.body.password,
+  };
 
-    Users.create(userToSave, function(err, post) {
-      console.log('post /register -- User.create');
-         if(err) {
-           console.log('post /register -- User.create -- failure');
-           next(err);
-         } else {
-           console.log('post /register -- User.create -- success');
-          res.redirect('/');
-         }
-    });
+  Users.create(userToSave, function(err, post) {
+    console.log('post /register -- User.create');
+    if(err) {
+      console.log('post /register -- User.create -- failure');
+      next(err);
+    } else {
+      console.log('post /register -- User.create -- success');
+      res.redirect('/');
+    }
+  });
 }); //end of create user post req.
 
 
@@ -38,7 +38,7 @@ router.post('/house', function(req, res, next) {
   console.log('post /register/house route');
 
   if(req.isAuthenticated()) {
-  console.log('req.user._id', req.user._id);
+    console.log('req.user._id', req.user._id);
 
     var houseToSave = {
       houseName: req.body.houseName,
@@ -48,18 +48,18 @@ router.post('/house', function(req, res, next) {
 
     House.create(houseToSave, function(err, post) {
       console.log('post /register/house -- house to create', houseToSave);
-         if(err) {
-           console.log('post /register -- User.create -- failure');
-           next(err);
-         } else {
-           console.log('post /register -- User.create -- success');
-          res.redirect('/');
-         }
+      if(err) {
+        console.log('post /register -- User.create -- failure');
+        next(err);
+      } else {
+        console.log('post /register -- User.create -- success');
+        res.redirect('/');
+      }
     });
-    } else {
-      console.log('not logged in');
-      res.send(false);
-    }
+  } else {
+    console.log('not logged in');
+    res.send(false);
+  }
 }); //end of post function
 
 
@@ -72,25 +72,25 @@ router.put('/join', function(req, res) {
 
   if(req.isAuthenticated()) {
 
-  House.update({ houseName: req.body.houseName, code: req.body.code},
-    { $push: { members: req.user._id}},
-    function(err, data) {
-      if(err) {
-        console.log('update error: ', err);
-        res.sendStatus(500);
-      } else {
-        res.sendStatus(200);
-      }
-    })
-}  else {
-  // failure best handled on the server. do redirect here.
-  console.log('not logged in');
-  // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
-  res.send(false);
-}
+    House.update({ houseName: req.body.houseName, code: req.body.code},
+      { $push: { members: req.user._id}},
+      function(err, data) {
+        if(err) {
+          console.log('update error: ', err);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(200);
+        }
+      })
+    }  else {
+      // failure best handled on the server. do redirect here.
+      console.log('not logged in');
+      // should probably be res.sendStatus(403) and handled client-side, esp if this is an AJAX request (which is likely with AngularJS)
+      res.send(false);
+    }
 
 
-}); //end put function
+  }); //end put function
 
 
-module.exports = router;
+  module.exports = router;

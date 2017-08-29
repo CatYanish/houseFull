@@ -1,20 +1,15 @@
-<!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="navbar goToPost">
   <a href="#/complete"><div class="postLink"><span class="glyphicon glyphicon-edit"></span>  Post a Completed Task</div></a>
 </div>
 <div class="container">
-
-
-
-
   <p align="center">
     Total Time Spent on House Tasks, in Minutes
   </p>
+  <!-- Angular Chart -->
     <canvas id="doughnut" class="chart chart-doughnut"
       chart-data="ic.data" chart-labels="ic.labels" chart-colors="colors">
     </canvas>
-
 
     <div ng-repeat="task in ic.houseTasks">
       <div class="taskCard col-xs-10">
@@ -25,23 +20,4 @@
         <button ng-click="ic.delete(task._id)" ng-if="ic.userObject.userName == task.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
       </div>
     </div>
-
-
-    <!-- test modal stuff -->
-    <!-- <button class="btn" ng-click="open()">Open Modal</button>
-
-    <div modal="showModal" close="cancel()">
-      <div class="modal-header">
-          <h4>Modal Dialog</h4>
-      </div>
-      <div class="modal-body">
-          <p>Example paragraph with some text.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" ng-click="ok()">Okay</button>
-        <button class="btn" ng-click="cancel()">Cancel</button>
-      </div>
-    </div> -->
-<!-- test modal stuff -->
-
 </div>

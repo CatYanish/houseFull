@@ -5,7 +5,4 @@ myApp.controller('NavController', function($http, $location, UserService) {
     vm.userObject = UserService.userObject;
 
 
-
-
-
-  }); //end of completeTaskController
+  }); //end of Controller

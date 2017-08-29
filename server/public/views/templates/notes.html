@@ -4,45 +4,13 @@
   <a href="#/new"><div class="postLink"><span class="glyphicon glyphicon-plus"></span>  Add a Note</div></a>
 </div>
 <div>
-
-
-
-
   <h1 align="center" type="button" name="button">House Notes</h1>
-
-<!-- <form name="taskForm">
-
-<div class="taskForm">
-
-
-    <div class="form-group">
-      <select class="form-control" ng-model="nc.note.category">
-        <option>Finances</option>
-        <option>Food</option>
-        <option>Cleaning</option>
-        <option>Visitors</option>
-        <option>Shopping</option>
-        <option>Other</option>
-      </select>
+  <div ng-repeat="note in nc.houseNotes | orderBy : '[]': true">
+    <div class="{{note.color}}Card col-xs-10">
+      <img class="icon col-xs-3" ng-src="{{note.icon}}">
+      <p class="col-xs-5">{{note.username}} </p>
+      <p class="col-xs-7">{{note.body}}</p>
+      <button class="trash-note col-xs-8" ng-click="nc.delete(note._id)" ng-if="nc.userObject.userName == note.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
     </div>
-    <div class="form-group">
-      <textarea rows="4" type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="nc.note.body"></textarea>
-    </div>
-
-    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="nc.postNote(nc.userObject.userName, nc.userObject.houseName, nc.userObject.code, nc.note.catogory)">Post Note!</button>
-    </div>
-</form> -->
-
-
-<div ng-repeat="note in nc.houseNotes | orderBy : '[]': true">
-  <div class="{{note.color}}Card col-xs-10">
-    <img class="icon col-xs-3" ng-src="{{note.icon}}">
-    <p class="col-xs-5">{{note.username}} </p>
-    <p class="col-xs-7">{{note.body}}</p>
-    <button class="trash-note col-xs-8" ng-click="nc.delete(note._id)" ng-if="nc.userObject.userName == note.username" class="trash-btn"><span class="glyphicon glyphicon-trash"></span></button>
   </div>
-</div>
-
-
-
 </div>

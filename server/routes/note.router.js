@@ -41,8 +41,6 @@ router.put('/', function(req, res) {
 }); //end put function
 
 
-
-
 //this route sends a list of all the tasks completed in the house//
 router.get('/', function(req, res) {
   if(req.isAuthenticated()) {

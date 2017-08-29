@@ -1,58 +1,43 @@
-<!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
-
 <div class="taskBackground">
-
-
-<div class="taskForm">
-
+  <div class="taskForm">
     <h3 align="center" type="button" name="button">Post a Completed House Task!</h3>
-
-<form name="taskForm">
-
-
-
-    <div class="form-group">
-      <select class="form-control" type="text" ng-model="cc.completedTask.room">
-        <option>Living Room</option>
-        <option>Kitchen</option>
-        <option>Bathroom</option>
-        <option>Bedroom</option>
-        <option>Hallway</option>
-        <option>Stairs</option>
-        <option>Yard/Garden/Outside</option>
-        <option>Common Space</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <select class="form-control" ng-model="cc.completedTask.time">
-        <option>10</option>
-        <option>20</option>
-        <option>30</option>
-        <option>40</option>
-        <option>50</option>
-        <option>60</option>
-        <option>70</option>
-        <option>80</option>
-        <option>90</option>
-        <option>100</option>
-        <option>110</option>
-        <option>120</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <input type="date" ng-model="cc.completedTask.date">
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="cc.completedTask.description">
-    </div>
-
-    <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="cc.postTask(cc.userObject.userName, cc.userObject.houseName, cc.userObject.code)">Submit!</button>
-
-</form>
-
-    </div>
-
-
-
+    <form name="taskForm">
+      <div class="form-group">
+        <select class="form-control" type="text" ng-model="cc.completedTask.room">
+          <option>Living Room</option>
+          <option>Kitchen</option>
+          <option>Bathroom</option>
+          <option>Bedroom</option>
+          <option>Hallway</option>
+          <option>Stairs</option>
+          <option>Yard/Garden/Outside</option>
+          <option>Common Space</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" ng-model="cc.completedTask.time">
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
+          <option>40</option>
+          <option>50</option>
+          <option>60</option>
+          <option>70</option>
+          <option>80</option>
+          <option>90</option>
+          <option>100</option>
+          <option>110</option>
+          <option>120</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="date" ng-model="cc.completedTask.date">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Brief Task Description (140 Categories or less) " ng-model="cc.completedTask.description">
+      </div>
+      <button class="btn btn-task col-xs-12" type="button" name="button" ng-click="cc.postTask(cc.userObject.userName, cc.userObject.houseName, cc.userObject.code)">Submit!</button>
+    </form>
+  </div>  
 </div>

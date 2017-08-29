@@ -30,11 +30,11 @@ router.get('/', function(req, res) {
         console.log('They have no house');
         console.log('user without house', userInfo);
         res.send(userInfo);
-     }
-   }).catch(function(err){
-     console.log('error',err);
-   }); //end of login and check if user has house function
-} else {
+      }
+    }).catch(function(err){
+      console.log('error',err);
+    }); //end of login and check if user has house function
+  } else {
     console.log('not logged in');
     res.send(false);
   }

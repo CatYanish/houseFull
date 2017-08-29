@@ -27,16 +27,13 @@ UserSchema.pre('save', function(next) {
             if(err) {
               return next(err);
             }
-            //IF WE WERE TO CONSOLE LOG RIGHT MEOW, user.password would be 12345
             user.password = hash;
             next();
         });
     });
 });
 
-// Used by login methods to compare login form password to DB password
 UserSchema.methods.comparePassword = function(candidatePassword, callback) {
-    // 'this' here refers to this instance of the User model
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if(err) {
           return callback(err);

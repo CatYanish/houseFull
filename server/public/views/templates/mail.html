@@ -1,13 +1,9 @@
-<!-- <div ng-include="'views/partials/banner.html'"></div> -->
 <div ng-include="'views/partials/nav.html'"></div>
-
-
-  <h3 class="invite-h3 col-xs-12" align="center">Invite Housemates to Join HouseFull </h3>
-  <label align="center" class="col-xs-12 col-form-label"><strong>Enter email addresses, separated by a comma</strong></label>
-
-  <div class="col-xs-12">
-    <input class="form-control" type="text" ng-model="uc.invite.email" placeholder="Email address, or email addresses separated by a comma">
-  </div>
+<h3 class="invite-h3 col-xs-12" align="center">Invite Housemates to Join HouseFull </h3>
+<label align="center" class="col-xs-12 col-form-label"><strong>Enter email addresses, separated by a comma</strong></label>
+<div class="col-xs-12">
+  <input class="form-control" type="text" ng-model="uc.invite.email" placeholder="Email address, or email addresses separated by a comma">
+</div>
 <div class="invite-form">
   <button class="btn btn-invite col-xs-12" ng-click="uc.emailUser(uc.userObject.houseName, uc.userObject.code)">Email!</button>
 </div>
