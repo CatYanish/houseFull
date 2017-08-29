@@ -1,4 +1,4 @@
-# Name of Project
+# HouseFull
 
 Many roommates struggle to coordinate house chores and information about shopping, house guests, or utilities with their roommates in a supportive, organized manner.
 
@@ -30,7 +30,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Link to software that is required to install the app (e.g. node).
+<!-- Link to software that is required to install the app (e.g. node). -->
 
 - [Node.js](https://nodejs.org/en/)
 - Heroku
@@ -47,11 +47,11 @@ Steps to get the development environment running.
 ![Screenshot](/ScreenShot2.png)
 
 
-## Documentation
+<!-- ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused. -->
 
-### Completed Features
+<!-- ### Completed Features
 
 High level list of items completed.
 
@@ -66,7 +66,7 @@ Features that you would like to add at some point in the future.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system -->
 
 ## Authors
 
