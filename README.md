@@ -7,7 +7,7 @@ HouseFull users can register and create a house, and send email invites for thei
 HouseFull is a full-stack web application built with JavaScript, AngularJS, Express, Node.js, Passport, Mongo, Mongoose, NodeMailer, Bootstrap, HTML, CSS, and Angular-Chart.
 
 
-## Built With
+### Built With
 
 
 --MongoDB
@@ -46,10 +46,12 @@ HouseFull is a full-stack web application built with JavaScript, AngularJS, Expr
 ### Installing
 You will need to have MongoDB, mongoose, node.js and Express installed. 
 
---To Install Node.js : https://nodejs.org/en/download/package-manager/
---Install MongoDB : https://docs.mongodb.com/manual/installation/
---Install Mongoose: $ npm install mongoose
+--To Install Node.js : https://nodejs.org/en/download/package-manager/ 
 
+--Install MongoDB : https://docs.mongodb.com/manual/installation/ 
+
+--Install Mongoose: $ npm install mongoose 
+ 
 
 ## Screen Shot
 
